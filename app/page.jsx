@@ -20,7 +20,7 @@ programming and am trying to build a strong foundation which would support me to
 future.</p>
           <div className="flex flex-col xl:flex-row justify-center items-center gap-4">
             
-              <a className="flex items-center justify-center gap-2 max-w-[200px] bg-primary text-accent px-2 py-2  border border-accent rounded-md hover:text-black hover:bg-accent-hover" download href="/MY_HIGH_ATS_RESUME.pdf">Resume <FiDownload className="text-[20px]"/> </a>
+              <a className="flex items-center justify-center gap-2 max-w-[200px] bg-primary text-accent px-2 py-2  border border-accent rounded-md hover:text-black hover:bg-accent-hover" download href="/AkshayResume.pdf">Resume <FiDownload className="text-[20px]"/> </a>
               
          
             <div className="mb-8 xl:mb-0">
