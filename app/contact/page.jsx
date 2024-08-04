@@ -79,10 +79,6 @@ const Contact = () => {
     }));
   };
 
-  // Debugging effect
-  useEffect(() => {
-    console.log("FORM DATA UPDATED", formData);
-  }, [formData]);
 
   return (
     <div>
