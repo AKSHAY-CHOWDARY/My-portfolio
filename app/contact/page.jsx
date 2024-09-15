@@ -148,6 +148,7 @@ const Contact = () => {
                       <SelectItem value="web dev">Web Development</SelectItem>
                       <SelectItem value="ml">Machine Learning</SelectItem>
                       <SelectItem value="dl">Deep Learning</SelectItem>
+                      <SelectItem value="genai">Generative AI</SelectItem>
                     </SelectGroup>
                   </SelectContent>
                 </Select>
