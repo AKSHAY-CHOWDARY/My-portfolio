@@ -55,7 +55,8 @@ const Contact = () => {
       );
       console.log(form.current);
       console.log(formData);
-      toast.success("Email sent successfully!", {
+      alert("Email sent successfully!");
+      /*toast.success("Email sent successfully!", {
         position: "top-center",
         autoClose: 5000,
         hideProgressBar: false,
@@ -63,10 +64,10 @@ const Contact = () => {
         pauseOnHover: true,
         draggable: true,
         progress: undefined,
-      });
+      });*/
       console.log("SUCCESS!");
     } catch (error) {
-      toast.error(
+      /*toast.error(
         "Failed to send email. Please try again later or Email me at k.v.akshay111@gmail.com",
         {
           position: "top-center",
@@ -77,7 +78,8 @@ const Contact = () => {
           draggable: true,
           progress: undefined,
         }
-      );
+      );*/
+      alert("Failed to send email. Please try again later or Email me at k.v.akshay111@gmail.com");
       console.error("FAILED...", error.text);
     }
   };
