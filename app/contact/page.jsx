@@ -20,13 +20,21 @@ import emailjs from "@emailjs/browser";
 
 const info = [
   { icon: <FaPhoneAlt />, title: "Phone", description: "+91 7893746567" },
-  { icon: <FaEnvelope />, title: "Email", description: "k.v.akshay111@gmail.com" },
-  { icon: <FaMapMarkerAlt />, title: "Location", description: "Hyderabad, Telangana" },
+  {
+    icon: <FaEnvelope />,
+    title: "Email",
+    description: "k.v.akshay111@gmail.com",
+  },
+  {
+    icon: <FaMapMarkerAlt />,
+    title: "Location",
+    description: "Hyderabad, Telangana",
+  },
 ];
 
 const Contact = () => {
   const form = useRef();
-  const [formData, setFormData] = useState({
+  let [formData, setFormData] = useState({
     firstname: "",
     lastname: "",
     email: "",
@@ -39,7 +47,14 @@ const Contact = () => {
     e.preventDefault();
 
     try {
-      await emailjs.sendForm("service_1782suv", "template_j6lf6bk", form.current, "GofgZx2Ly1tQpMVjk");
+      await emailjs.sendForm(
+        "service_1782suv",
+        "template_j6lf6bk",
+        form.current,
+        "GofgZx2Ly1tQpMVjk"
+      );
+      console.log(form.current);
+      console.log(formData);
       toast.success("Email sent successfully!", {
         position: "top-center",
         autoClose: 5000,
@@ -51,40 +66,43 @@ const Contact = () => {
       });
       console.log("SUCCESS!");
     } catch (error) {
-      toast.error("Failed to send email. Please try again.", {
-        position: "top-center",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-      });
+      toast.error(
+        "Failed to send email. Please try again later or Email me at k.v.akshay111@gmail.com",
+        {
+          position: "top-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        }
+      );
       console.error("FAILED...", error.text);
     }
   };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData(prevData => ({
+    setFormData((prevData) => ({
       ...prevData,
-      [name]: value
+      [name]: value,
     }));
   };
 
   const handleSelectChange = (value) => {
-    setFormData(prevData => ({
+    setFormData((prevData) => ({
       ...prevData,
-      service: value
+      service: value,
     }));
   };
-
 
   return (
     <div>
       <ToastContainer
         position="top-center"
         autoClose={5000}
+        width={500}
         hideProgressBar={false}
         closeOnClick
         rtl={false}
@@ -138,7 +156,7 @@ const Contact = () => {
                 />
               </div>
               <div>
-                <Select onValueChange={handleSelectChange}>
+                <Select onValueChange={handleSelectChange} name="service">
                   <SelectTrigger className="w-full">
                     <SelectValue placeholder="Select a service" />
                   </SelectTrigger>
@@ -165,19 +183,19 @@ const Contact = () => {
             </form>
           </div>
           <div className="order-1 xl:order-none flex-1 flex items-center xl:justify-end mb-8 xl:mb-0">
-           <ul>
-           {info.map((item, index) => (
-              <li key={index} className="flex items-center gap-4">
-                <div className="h-[32px] w-[32px] xl:w-[72px] xl:h-[72px] bg-primary text-accent hover:text-primary hover:bg-accent-hover rounded-md flex items-center justify-center">
-                  <div className="text-[28px]">{item.icon}</div>
-                </div>
-                <div className="flex flex-col">
-                  <span className="text-sm text-white/60">{item.title}</span>
-                  <span className="text-white">{item.description}</span>
-                </div>
-              </li>
-            ))}
-           </ul>
+            <ul>
+              {info.map((item, index) => (
+                <li key={index} className="flex items-center gap-4">
+                  <div className="h-[32px] w-[32px] xl:w-[72px] xl:h-[72px] bg-primary text-accent hover:text-primary hover:bg-accent-hover rounded-md flex items-center justify-center">
+                    <div className="text-[28px]">{item.icon}</div>
+                  </div>
+                  <div className="flex flex-col">
+                    <span className="text-sm text-white/60">{item.title}</span>
+                    <span className="text-white">{item.description}</span>
+                  </div>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </div>
